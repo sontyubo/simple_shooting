@@ -1,0 +1,61 @@
+'実行ショートカット
+'option + D
+
+@startuml game
+
+class Board{
+    - height
+    - width
+    - containar
+    - field
+
+    void Board()
+
+    void init_filed()
+    void addContainer()
+    void deleteMoval()
+    void relax()
+    void printField()
+}
+note top of Board: BoardにMovalを投影
+
+abstract class Moval{
+    - x
+    - y
+    + void setX()
+    + void setY()
+    + list getPosition()
+}
+
+class Enemy{
+    + void progress()
+}
+
+class Bullet{
+    + void progress()
+}
+
+class Player{
+    + void move()
+    + Bullet createBullet() 
+}
+
+class Fortress{
+    + void move()
+    + Enemy createEnemy() 
+}
+
+Board *--- Moval
+Moval <|--- Enemy
+Moval <|--- Player
+Moval <|--- Fortress
+Moval <|--- Bullet
+Fortress o--- Enemy
+Player o--- Bullet
+
+'note "This is a floating note" as N1
+'note "This note is connected\nto several objects." as N2
+'Object .. N2
+'N2 .. ArrayList
+
+@enduml
