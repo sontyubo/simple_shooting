@@ -1,15 +1,31 @@
 package src;
+import java.util.Scanner;
 
 public class PlayGame {
     
     public static void main(String[] args) {
-        Board B = new Board(10, 10);
+        Board B = new Board(15, 9);
 
-        Enemy E = new Enemy();
+        int cnt = 0;
+        while (true) {
+            //標準入力
+            Scanner sc = new Scanner(System.in);
+            String order = sc.next();
 
-        B.addContainer(E);
+            // 各オブジェクトの更新
+            B.relax(order);
 
-        System.out.println();
+            // 点描
+            B.printField();
+
+            if(cnt > 200){
+                break;
+            }
+            cnt++;
+        }
+
+
+        System.out.println(" --- 終了 ----");
     }
     
 }

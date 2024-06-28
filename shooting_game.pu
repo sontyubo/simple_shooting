@@ -9,13 +9,13 @@ class Board{
     - containar
     - field
 
-    void Board()
+    + void Board()
 
-    void init_filed()
-    void addContainer()
-    void deleteMoval()
-    void relax()
-    void printField()
+    - void init_filed()
+    - void addContainer()
+    - void deleteMoval()
+    + void relax()
+    + void printField()
 }
 note top of Board: BoardにMovalを投影
 
